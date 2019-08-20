@@ -1,17 +1,9 @@
 <template>
   <div class="full-calendar-header">
     <div class="header-left">
-      <slot name="header-left">
-      </slot>
-    </div>
-    <div class="header-center">
-      <span class="prev-month" @click.stop="goPrev">{{leftArrow}}</span>
+      <span class="prev-month" @click.stop="goPrev">{{leftArrow}} 上个月</span>
       <span class="title">{{title}}</span>
-      <span class="next-month" @click.stop="goNext">{{rightArrow}}</span>
-    </div>
-    <div class="header-right">
-      <slot name="header-right">
-      </slot>
+      <span class="next-month" @click.stop="goNext">下个月 {{rightArrow}}</span>
     </div>
   </div>
 </template>
@@ -36,7 +28,7 @@
     computed: {
       title () {
         if (!this.currentMonth) return;
-        return this.currentMonth.locale(this.locale).format('MMMM YYYY')
+        return this.currentMonth.locale(this.locale).format('YYYY年MM月')
       }
     },
     methods : {
@@ -53,20 +45,14 @@
 </script>
 <style lang="scss">
 .full-calendar-header{
+  font-size: 12px;
   display: flex;
   align-items: center;
-  .header-left,.header-right{
-    flex:1;
-  }
-  .header-center{
-    flex:3;
-    text-align:center;
     .title{
-      margin: 0 10px;
+      margin: 0 20px;
     }
     .prev-month,.next-month{
       cursor: pointer;
     }
-  }
 }
 </style>

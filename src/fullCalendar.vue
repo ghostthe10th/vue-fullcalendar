@@ -18,9 +18,6 @@
     </fc-header>
     <!-- body display date day and events -->
     <div class="full-calendar-body">
-      <div class="weeks">
-        <strong class="week" v-for="dayIndex in 7">{{ (dayIndex - 1) | localeWeekDay(firstDay, locale) }}</strong>
-      </div>
       <div class="dates" ref="dates">
         <div class="dates-bg">
           <div class="week-row" v-for="week in currentDates">
@@ -240,7 +237,7 @@
       }
     }
   }
-  
+
 </script>
 <style lang="scss">
   .comp-full-calendar{
@@ -256,16 +253,13 @@
   }
 
   .full-calendar-body{
-    margin-top: 20px;
+    margin-top: 30px;
   .weeks{
     display: flex;
-    border-top:1px solid #e0e0e0;
     border-bottom:1px solid #e0e0e0;
-    border-left:1px solid #e0e0e0;
   .week{
     flex:1;
     text-align: center;
-    border-right:1px solid #e0e0e0;
   }
   }
   .dates {
@@ -273,16 +267,15 @@
   .week-row{
   // width: 100%;
   // position:absolute;
-    border-left:1px solid #e0e0e0;
     display: flex;
   .day-cell{
     flex:1;
     min-height: 112px;
-    padding:4px;
-    border-right:1px solid #e0e0e0;
+    padding-top: 8px;
+    padding-left: 5px;
     border-bottom:1px solid #e0e0e0;
   .day-number{
-    text-align: right;
+    text-align: left;
   }
   &.today{
      background-color:#fcf8e3;
